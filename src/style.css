@@ -1,0 +1,24 @@
+table, td, tr {
+    border: 3px solid black;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    height: 100%;
+
+}
+/*
+td = Rows, tr = Columns
+ */
+td {
+    height: 50px;
+    vertical-align: center;
+}
+
+#one:hover, #two:hover, #three:hover, #four:hover, #five:hover, #six:hover, #seven:hover, #eight:hover, #blank:hover
+{
+    background-color: grey;
+}
+
