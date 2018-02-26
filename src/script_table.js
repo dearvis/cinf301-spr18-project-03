@@ -14,9 +14,10 @@ window.onload = function() {
         console.log(rowIndex, columnIndex);
         let x = rowIndex;
         let y = columnIndex;
-        document.cookie="x =rowIndex";
-        document.cookie="y =columnIndex";
+        document.cookie="x=" + rowIndex;
+        document.cookie="y=" + columnIndex;
         location.href = 'puzzle_logic.php';
+        //document.cookie = "row_clicked=" + i;
     })
 };
 
