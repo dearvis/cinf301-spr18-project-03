@@ -11,47 +11,48 @@
     </center>
 </head>
 <body>
-<form action="puzzle_logic.php" method="get">
-
+<form action="handler.php" method="get">
 
 <table align="center" style="cursor: pointer;">
     <tr>
 
-        <td align="center" id ="one">1<input type="hidden" name="one" value="1" />
+        <td align="center" id ="one">1<input type='hidden' name='one' value='1' />
         </td>
-        <td align="center" id ="two">2<input type="hidden" name="two" value="2" />
+        <td align="center" id ="two">2<input type='hidden' name='two' value='2' />
         </td>
-        <td align="center" id ="three">3<input type="hidden" name="three" value="3" />
+        <td align="center" id ="three">3<input type='hidden' name='three' value='3' />
         </td>
     </tr>
     <tr>
-        <td align="center" id ="eight">8<input type="hidden" name="eight" value="8" />
+        <td align="center" id ="eight">8<input type='hidden' name='eight' value='8' />
         </td>
-        <td align="center" id ="blank"> <input type="hidden" name="blank" value=" " />
+        <td align="center" id ="blank"> <input type='hidden' name='blank' value=' '  />
         </td>
-        <td align="center" id ="four">4<input type="hidden" name="four" value="4" />
+        <td align="center" id ="four">4<input type='hidden' name='four' value='4' />
         </td>
     </tr>
     <tr>
         <td align="center" id ="seven">7<input type="hidden" name="seven" value="7" />
         </td>
-        <td align="center" id ="six">6<input type="hidden" name="six" value="6" />
+        <td align="center" id ="six">6<input type='hidden' name='six' value='6' />
         </td>
-        <td align="center" id ="five">5<input type="hidden" name="five" value="5" />
+        <td align="center" id ="five">5<input type='hidden' name='five' value='5' />
         </td>
     </tr>
 </table>
 <br />
-<center>
-<button id="scrambleButton">Scramble</button>
-</center>
-    <script src="script_table.js"></script>
-<?php include '/src/puzzle_logic.php';?>
 
-<center>
-<p id = "p1"></p>
-</center>
+<button  id="scrambleButton">Scramble</button>
+
 </form>
+
+
+
+
+<p id = "p1"></p>
+<script src="script_table.js"></script>
+
+
 </body>
 </html>
 
