@@ -2,11 +2,15 @@
  * See https://stackoverflow.com/questions/45656949/how-to-return-the-row-and-column-index-of-a-table-cell-by-clicking
  * which includes a Jquery solution too.
  */
+var currentTable = new Array(9);
+var bool = false;
+var clicked = false;
 window.onload = function() {
     const table = document.querySelector('table');
     const rows = document.querySelectorAll('tr');
     const rowsArray = Array.from(rows);
-    var currentTable = new Array(9);
+
+
     table.addEventListener('click', (event) => {
         const rowIndex = rowsArray.findIndex(row => row.contains(event.target));
         const columns = Array.from(rowsArray[rowIndex].querySelectorAll('td'));
@@ -25,18 +29,50 @@ window.onload = function() {
         var myPostString = currentTable.join(delimiter);
         let x = rowIndex;
         let y = columnIndex;
-        document.cookie="x=" + rowIndex;
-        document.cookie="y=" + columnIndex;
-        document.cookie="currTable=" + myPostString;
-         //  window.alert(myPostString);
 
-           // window.location.href = "handler.php?w1=" + myPostString;
+        if(bool === false) {
+           document.cookie = "x=" + rowIndex;
+           document.cookie = "y=" + columnIndex;
+           document.cookie = "blank_x=1";
+           document.cookie = "blank_y=1";
+            document.cookie="currTable=" + myPostString;
+           bool = true;
+       }
+
+        if(clicked === true) {
+            let empty_val = table.rows[parseInt(getCookie("blank_x"))].cells[parseInt(getCookie("blank_y"))].innerHTML; // new spot clicked is moving too  (B)
+            let clicked_val = table.rows[parseInt(getCookie("x"))].cells[parseInt(getCookie("y"))].innerHTML; // E
+            table.rows[parseInt(getCookie("blank_x"))].cells[parseInt(getCookie("blank_y"))].innerHTML = clicked_val.toString();
+            table.rows[parseInt(getCookie("x"))].cells[parseInt(getCookie("y"))].innerHTML = empty_val.toString();
+        }
+        if(clicked !== true){
+
+        }
+
+    })};
+    function getCookie(name) {
+        function escape(s) {
+            return s.replace(/([.*+?\^${}()|\[\]\/\\])/g, '\\$1');
+        }
+        var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+        return match ? match[1] : null;
+    }
+
+    function swap()
+    {
+        const table = document.querySelector('table');
+        let empty_val = table.rows[parseInt(getCookie("blank_x") )].cells[parseInt(getCookie("blank_y") )].innerHTML; // new spot clicked is moving too  (B)
+        let clicked_val = table.rows[parseInt(getCookie("x"))].cells[parseInt(getCookie("y"))].innerHTML; // E
+        table.rows[parseInt(getCookie("blank_x") )].cells[parseInt(getCookie("blank_y") )].innerHTML = clicked_val.toString();
+        table.rows[parseInt(getCookie("x"))].cells[parseInt(getCookie("y"))].innerHTML = empty_val.toString();
+    }
 
 
-          //  console.log(currentTable[0]);
+$.ajax({
+    url: 'handler.php',
+    success: function(data) {
+        $('.result').html(data);
+    }
+});
 
-           location.href = 'handler.php';
-        //document.cookie = "row_clicked=" + i;
-    })
-};
 

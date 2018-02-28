@@ -8,13 +8,14 @@
     <title>The Grid Game!!!</title>
     <center>
     <h1>Grid Puzzle</h1>
+        <script src="script_table.js"></script>
     </center>
 </head>
 <body>
-<form action="handler.php" method="get">
 
 <table align="center" style="cursor: pointer;">
     <tr>
+
 
         <td align="center" id ="one">1<input type='hidden' name='one' value='1' />
         </td>
@@ -44,13 +45,14 @@
 
 <button  id="scrambleButton">Scramble</button>
 
-</form>
+    <p id = "p1"> <?php echo $_SESSION['text']; ?> </p>
 
 
 
 
-<p id = "p1"></p>
-<script src="script_table.js"></script>
+
+
+
 
 
 </body>
